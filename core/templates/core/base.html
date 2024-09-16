@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link href={% static 'core/css/bootstrap.min.css' %} rel="stylesheet">
+    <link href={% static 'core/css/blog.css' %} rel="stylesheet">
+    <title>Productos Estrella</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Barra de Navegación -->
+        <header class="border-bottom lh-1 py-3">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+  
+              <a class="navbar-brand" href={% url 'home' %}>
+                <img src={% static 'core/img/logo.png' %} alt="">
+              </a>
+  
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Enlaces Menu -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href={% url 'home' %}>Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categorias
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <!-- Buscador -->
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar Producto</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+          <main>
+
+            <!-- Producto Destacado -->
+             {% block producto_destacado %} {% endblock producto_destacado %}
+            
+
+              <div class="row g-5">
+                <!-- Columna de contenido -->
+                <div class="col-md-8">
+                  {% block content %}{% endblock content %}
+                    
+
+                <!-- Barra de Navegación Derecha -->
+                <div class="col-md-4">
+                  <div class="position-sticky" style="top: 2rem;">
+                    <div class="p-4 mb-3 bg-body-tertiary rounded">
+                      <h4 class="fst-italic">Quienes Somos</h4>
+                      <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                    </div>
+            
+                    <div>
+                      <h4 class="fst-italic">Productos Recientes</h4>
+                      <ul class="list-unstyled">
+                        <li>
+                          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                            <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                            <div class="col-lg-8">
+                              <h6 class="mb-0">Example blog post title</h6>
+                              <small class="text-body-secondary">January 15, 2024</small>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                            <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                            <div class="col-lg-8">
+                              <h6 class="mb-0">This is another blog post title</h6>
+                              <small class="text-body-secondary">January 14, 2024</small>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                            <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                            <div class="col-lg-8">
+                              <h6 class="mb-0">Longer blog post title: This one has multiple lines!</h6>
+                              <small class="text-body-secondary">January 13, 2024</small>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+            
+                    <div class="p-4">
+                      <h4 class="fst-italic">Siguenos en las Redes</h4>
+                      <ol class="list-unstyled">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+          </main>
+
+          <!-- Pie de Pagina -->
+          <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+            <p>Productos Estrella</p>
+            <p class="mb-0">
+              <a href="#">Back to top</a>
+            </p>
+          </footer>
+          <script src={% static 'core/js/bootstrap.bundle.min.js' %}></script>
+
+    </div>
+</body>
+</html>
