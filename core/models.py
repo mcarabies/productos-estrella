@@ -5,8 +5,11 @@ from django.db import models
 class Category (models.Model):
     name = models.CharField(max_length=200, unique=True, verbose_name='Nombre')
     active = models.BooleanField(default=True, verbose_name='Activo')
+    description = models.TextField(max_length=250, verbose_name='Descripción', null=True)
+    image = models.URLField(max_length=350, blank=True, null=True, verbose_name='Imagen de Categoria')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')
+    
     
     class Meta:
         verbose_name = 'Categoria'
