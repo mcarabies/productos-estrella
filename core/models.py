@@ -41,6 +41,8 @@ class Product(models.Model):
     excerpt = models.TextField(max_length=300, verbose_name='Descripción Corta')
     content = models.TextField (max_length=1000, verbose_name='Descripción Larga')
     published = models.BooleanField(default=False, verbose_name='Publicado')
+    url_amazon = models.URLField(max_length=350, blank=True, null=True, verbose_name='Enlace Original Amazon')
+    url_afiliado_amazon = models.URLField(max_length=350, blank=True, null=True, verbose_name='Enlace Afiliado Amazon')
     #Relaciones
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Categoría')
     tags = models.ManyToManyField(Tag, verbose_name='Etiquetas')
