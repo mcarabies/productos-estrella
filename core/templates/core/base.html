@@ -36,11 +36,11 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Categorias
                     </a>
+                    <!-- Menu de Categorias -->
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      {% for category_key, items in categories_all.items %}
+                        <li><a class="dropdown-item" href="#">{{items.name}}</a></li>
+                      {% endfor %}
                     </ul>
                   </li>
                 </ul>
@@ -113,9 +113,7 @@
                       <h4 class="fst-italic">Siguenos en las Redes</h4>
                       <ol class="list-unstyled">
                         {% for social_key, items in link_all.items %}
-                          {% if items.url %}
                           <li><i class="{{items.icon}} "><a href='{{items.url}}' class="ms-2">{{items.name}}</a></i></li>
-                          {% endif %}
                         {% endfor %}
                       </ol>
                     </div>

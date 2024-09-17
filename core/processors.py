@@ -7,13 +7,26 @@ def ctx_dic_about(req):
     return ctx_about
 
 # CATEGORIES
-
+def ctx_dic_categories(req):
+    ctx_categories = {}
+    categories = Category.objects.all()
+    
+    for category in categories:
+        ctx_categories[category.id] = {
+            'name': category.name,
+            'active': category.active,
+            'description': category.description,
+            'image': category.image
+        }
+    return {'categories_all': ctx_categories}
+    
 
 
 # LINK SOCIAL
 def ctx_dic_linksocial(req):
     ctx_links = {}    
-    links = Linksocial.objects.all()
+    links = Linksocial.objects.all().exclude(url=None)
+    
     
     for link in links:
         ctx_links[link.key] = {

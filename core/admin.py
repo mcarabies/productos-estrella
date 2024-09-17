@@ -5,7 +5,8 @@ from .models import Category, Tag, Product, About, Linksocial
 # CATEGORIAS
 class CategoryAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
-    list_display = ('id', 'name', 'active')
+    list_display = ('name', 'active')
+    
 admin.site.register(Category, CategoryAdmin)
 
 # ETIQUETAS
