@@ -32,6 +32,5 @@ admin.site.register(About, AboutAdmin)
 class LinksocialAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
     list_display = ('name', 'url')
-    ordering = ('name',)
     search_fields = ('title',)
 admin.site.register(Linksocial, LinksocialAdmin)
