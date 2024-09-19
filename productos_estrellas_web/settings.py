@@ -66,7 +66,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'core.processors.ctx_dic_linksocial',
                 'core.processors.ctx_dic_about',
-                'core.processors.ctx_dic_categories'
+                'core.processors.ctx_dic_categories',
+                'core.processors.ctx_dic_recentproduct'
             ],
         },
     },

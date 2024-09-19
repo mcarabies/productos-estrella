@@ -1,4 +1,4 @@
-from .models import About, Linksocial, Category
+from .models import About, Linksocial, Category, Product
 
 # ABOUT
 def ctx_dic_about(req):
@@ -27,7 +27,6 @@ def ctx_dic_linksocial(req):
     ctx_links = {}    
     links = Linksocial.objects.all().exclude(url=None)
     
-    
     for link in links:
         ctx_links[link.key] = {
             'name': link.name,
@@ -36,3 +35,15 @@ def ctx_dic_linksocial(req):
         }
 
     return {'link_all':ctx_links}
+
+# RECENT PRODUCTS
+def ctx_dic_recentproduct(req):
+    ctx_recentproduct = {}
+    recent_product = Product.objects.all().order_by('-created')[:3]
+    
+    for product in recent_product:
+        ctx_recentproduct[product.id] = {
+            'title': product.title,
+            'created': product.created
+        }
+    return {'recent_products_all':ctx_recentproduct}
