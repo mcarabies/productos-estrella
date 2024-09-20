@@ -94,4 +94,19 @@ class Linksocial(models.Model):
         return self.name
 
 # IMAGENES DE PRODUCTOS
+class Productimages(models.Model):
+    url = models.URLField(max_length=350, blank=True, null=True, verbose_name='Enlace')
+    alt = models.CharField(max_length=100, verbose_name='Descripción de la imagen (alt)')
+    #Relaciones
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Producto')
     
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')
+    
+    class Meta:
+        verbose_name = 'Imagen'
+        verbose_name_plural = 'Imagenes'
+        ordering = ['product']
+    
+    def __str__(self):
+        return self.product.title
